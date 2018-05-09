@@ -53,13 +53,8 @@ public class MainActivity extends Activity {
             player.release();
             player = null;
             Toast.makeText(this,"MediaPlayer released", Toast.LENGTH_SHORT).show();
+            stopService(new Intent(getBaseContext(), ServiceStream.class));
         }
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        stopPlayer();
-        stopService(new Intent(getBaseContext(), ServiceStream.class));
     }
 }
